@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="system" method="update">
+	<name>System - FlowPlayer Reloaded by tushev.org</name>
+	<author>Semyon Tushev</author>
+	<creationDate>July 2011 - November 2010</creationDate>
+	<copyright>(C) S.Tushev, 2011. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@tushev.org</authorEmail>
+	<authorUrl>http://tushev.org</authorUrl>
+	<version>3.0</version>
+	<description>PLUGIN_DESC</description>
+	<files>
+		<filename plugin="flowplayerreloaded">flowplayerreloaded.php</filename>
+		<file>flowplayer_r/javascripts/flowplayer-3.2.6.min.js</file>
+		<file>flowplayer_r/players/flowplayer-3.2.7.swf</file>
+		<file>flowplayer_r/players/flowplayer-3.2.7-modern-http_pseudo.swf</file>
+		<file>flowplayer_r/players/flowplayer-3.2.7-tube-http_pseudo.swf</file>
+		<file>flowplayer_r/players/flowplayer.controls-3.2.5.swf</file>
+		<file>flowplayer_r/swfplugins/flowplayer.viralvideos-3.2.5.swf</file>
+		<file>flowplayer_r/swfplugins/flowplayer.content-3.2.0.swf</file>
+		<file>flowplayer_r/swfplugins/flowplayer.captions-3.2.3.swf</file>
+		<file>flowplayer_r/swfplugins/flowplayer.ipad-3.2.2.min.js</file>
+		<file>flowplayer_r/assets/play_large.png</file>
+		<file>flowplayer_r/assets/play_large2.png</file>
+		<file>flowplayer_r/assets/fprr200.png</file>
+		<file>flowplayer_r/assets/exclamation.png</file>
+		<file>flowplayer_r/assets/notice.png</file>
+		<file>flowplayer_r/swfplugins/index.html</file>
+		<file>flowplayer_r/javascripts/index.html</file>
+		<file>flowplayer_r/players/index.html</file>
+		<file>flowplayer_r/assets/index.html</file>
+		<file>flowplayer_r/index.html</file>
+		<file>flowplayer_r/README.txt</file>	
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_flowplayerreloaded.ini</language>
+		<language tag="zh-CN">zh-CN.plg_system_flowplayerreloaded.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">		
+				<field name="width" type="text" label="WIDTH" default="640" description="WIDTH_DESC" />
+				<field name="height" type="text" label="HEIGHT" default="400" description="HEIGHT_DESC" />
+				<field name="autoPlay" type="radio" label="AUTOPLAY" default="0" description="AUTOPLAY_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				<field name="scaling" type="list" label="SCALING" default="scale" description="SCALING_DESC">
+					<option value="fit">SCALING_OPT1</option>
+					<option value="half">SCALING_OPT2</option>
+					<option value="orig">SCALING_OPT3</option>
+					<option value="scale">SCALING_OPT4</option>
+				</field>
+				<field name="bufferL" type="text" label="BUFFERL" default="3" description="BUFFERL_DESC" />
+				<field name="viral" type="radio" label="VIRAL" default="1" description="VIRAL_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				<field name="ipad" type="list" label="IPAD" default="0" description="IPAD_DESC" >
+					<option value="2">IPAD_ALL</option>
+					<option value="1">IPAD_IOS</option>
+					<option value="0">IPAD_DISABLED</option>			
+				</field>
+				<field name="subtitles" type="radio" label="SUBTITLES" default="0" description="SUBTITLES_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+
+				<field name="swf" type="filelist" default="flowplayer-3.2.7-modern-http_pseudo.swf" label="SELECT_SWF" description="SELECT_SWF_DESC" directory="/plugins/system/flowplayerreloaded/flowplayer_r/players" exclude="index\.html|^flowplayer\.controls" hide_none='true' hide_default='true' />
+				<field name="js" type="filelist" default="flowplayer-3.2.6.min.js" label="SELECT_JS" description="SELECT_JS_DESC" directory="/plugins/system/flowplayerreloaded/flowplayer_r/javascripts" exclude="index.html" hide_none='true' hide_default='true' />
+				<field name="center" type="radio" label="CENTER" default="1" description="CENTER_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				<field name="dlink" type="radio" label="DLINK" default="0" description="DLINK_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+
+				<field name="popup" type="radio" label="POPUP" default="0" description="POPUP_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				<field name="pwidth" type="text" label="PWIDTH" default="700" description="PWIDTH_DESC" />
+				<field name="pheight" type="text" label="PHEIGHT" default="400" description="PHEIGHT_DESC" />
+				
+			</fieldset>	
+			<fieldset name="advanced">
+				
+				<field name="@spacer" type="spacer" default="CONFIGURATION_FLOWPLAYER" label="" description="" />
+				
+				<field name="key" type="text" label="KEY" default="" description="KEY_DESC" />
+				<field name="element" type="radio" label="ELEMENT" default="a" description="ELEMENT_DESC" >
+					<option value="a">ELEMENT_A</option>
+					<option value="div">ELEMENT_DIV</option>			
+				</field>
+				<field name="splashtype" type="radio" label="SPLASH" default="0" description="SPLASH_DESC" >
+					<option value="0">Canvas</option>
+					<option value="1">SPLASH_IMG</option>			
+				</field>
+				<field name="globalimg" type="text" label="GLOBALIMG" size="30" default="" description="GLOBAL_DESC" />
+				<field name="@spacer" type="spacer" default="CONFIGURATION_FLOWPLAYER" label="" description="" />
+				<field name="plugins" type="textarea" label="PLUGINS" cols="40" rows="10" default="" description="PLUGINS_DESC" />
+				<field name="clip" type="textarea" label="CLIP" cols="40" rows="4" default="" description="CLIP_DESC" />				
+				<field name="canvas" type="textarea" label="CANVAS" cols="40" rows="4" default="" description="CANVAS_DESC" />	
+				<field name="screen" type="textarea" label="SCREEN" cols="40" rows="4" default="" description="SCREEN_DESC" />	
+				<field name="play" type="textarea" label="PLAY" cols="40" rows="4" default="" description="PLAY_DESC" />		
+				<field name="additionalconfig" type="textarea" label="ADDITIONAL_CONFIG" cols="40" rows="10" default="" description="ADDITIONAL_CONFIG_DESC" />		
+				<field name="jssuffix" type="textarea" label="JS_SUFFIX" cols="40" rows="10" default="" description="JS_SUFFIX_DESC" />	
+				<field name="viral_conf" type="textarea" label="VIRAL_CONFIG" cols="40" rows="10" default="" description="VIRAL_CONFIG_DESC" />		
+				<field name="dlinktext" type="text" label="DLINKTEXT" default="Download" size="30" description="DLINKTEXT_DESC" />
+				<field name="noscript" type="radio" label="NOSCRIPT" default="0" description="NOSCRIPT_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>			
+				</field>
+				<field name="wmode" type="list" label="WMODE" default="opaque" description="WMODE_DESC">
+					<option value="opaque">WMODE_OPT_OPAQUE</option>
+					<option value="window">WMODE_OPT_WINDOW</option>
+					<option value="transparent">WMODE_OPT_TRANSPARENT</option>
+				</field>				
+			</fieldset>
+		</fields>
+	</config>			
+</extension>
