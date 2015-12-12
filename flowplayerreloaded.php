@@ -23,7 +23,6 @@ class plgSystemFlowplayerReloaded extends JPlugin{
      function plgSystemFlowplayerReloaded( &$subject, $params )
      {
 	  parent::__construct( $subject, $params );
-	  //$this->p = new JParameter($params['params']);
      }
 
      function onAfterRoute() {
@@ -60,7 +59,6 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 	       if($result!==false)
 	       {
 		    JResponse::setBody($result);
-		    //if(!($this->params->get('noscript')==1))	JResponse::appendBody($this->buildScript());
 	       }
 	  }
 
@@ -105,11 +103,11 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 	  $video = '<div class="flowplayer" data-swf="flowplayer.swf" data-ratio="0.4167" style="width: '
 		    . $width. 'px; height: ' . $height . 'px;	display: block;" >' .
 		    '<video>' .
-		    '<source type="application/x-mpegurl"' .
-		    'src= "'. $filename . '">' .
+		    '<source type="application/x-mpegurl" ' .
+		    'src="'. $filename . '">' .
 		    '</video>' .
 		    '</div>';
-		
+          
 	  return $video;
      }
 
