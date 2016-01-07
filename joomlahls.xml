@@ -1,72 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="1.6" type="plugin" group="system" method="update">
-  <name>System - FlowPlayer Reloaded by tushev.org</name>
-  <author>Semyon Tushev</author>
-  <creationDate>July 2011 - November 2010</creationDate>
-  <copyright>(C) S.Tushev, 2011. All rights reserved.</copyright>
+  <name>cross platform hls player plugin</name>
+  <author>Sun Peng</author>
+  <creationDate>Jan 2016 - November 2020</creationDate>
+  <copyright>(C) Sun Peng, 2020. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-  <authorEmail>support@tushev.org</authorEmail>
-  <authorUrl>http://tushev.org</authorUrl>
-  <version>3.0</version>
+  <authorEmail>sunnycamel@gmail.com</authorEmail>
+  <version>1.0</version>
   <description>PLUGIN_DESC</description>
   <files>
-    <filename plugin="flowplayerreloaded">flowplayerreloaded.php</filename>
-    <file>flowplayer_r/player/flowplayer.min.js</file>
-    <file>flowplayer_r/player/flowplayerhls.swf</file>
-    <file>flowplayer_r/player/jquery-1.11.2.min.js</file>
-    <file>flowplayer_r/player/functional.css</file>
-    <file>flowplayer_r/player/flowplayer.swf</file>
-    <file>flowplayer_r/player/hls.js</file>
-    <file>flowplayer_r/player/embed.min.js</file>
-    <file>flowplayer_r/player/flowplayer.hlsjs.js</file>
-    <file>flowplayer_r/player/flowplayer.js</file>
-    <file>flowplayer_r/player/skin/img/play_white@x2.png</file>
-    <file>flowplayer_r/player/skin/img/playful_white@x2.png</file>
-    <file>flowplayer_r/player/skin/img/play_white_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/white@x2.png</file>
-    <file>flowplayer_r/player/skin/img/white.png</file>
-    <file>flowplayer_r/player/skin/img/play_black_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/black.png</file>
-    <file>flowplayer_r/player/skin/img/white_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/playful_black@x2.png</file>
-    <file>flowplayer_r/player/skin/img/black@x2.png</file>
-    <file>flowplayer_r/player/skin/img/black_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/black_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/play_white.png</file>
-    <file>flowplayer_r/player/skin/img/flowplayer@2x.png</file>
-    <file>flowplayer_r/player/skin/img/play_black@x2.png</file>
-    <file>flowplayer_r/player/skin/img/playful_black_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/play_black.png</file>
-    <file>flowplayer_r/player/skin/img/playful_black_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/play_black_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/playful_black.png</file>
-    <file>flowplayer_r/player/skin/img/play_white_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/white_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/playful_white_rtl.png</file>
-    <file>flowplayer_r/player/skin/img/playful_white.png</file>
-    <file>flowplayer_r/player/skin/img/playful_white_rtl@x2.png</file>
-    <file>flowplayer_r/player/skin/img/flowplayer.png</file>
-    <file>flowplayer_r/player/skin/playful.css</file>
-    <file>flowplayer_r/player/skin/functional.css</file>
-    <file>flowplayer_r/player/skin/all-skins.css</file>
-    <file>flowplayer_r/player/skin/fonts/fpicons.woff</file>
-    <file>flowplayer_r/player/skin/fonts/fpicons.eot</file>
-    <file>flowplayer_r/player/skin/fonts/fpicons.ttf</file>
-    <file>flowplayer_r/player/skin/fonts/fpicons.svg</file>
-    <file>flowplayer_r/player/skin/minimalist.css</file>
-    <file>flowplayer_r/player/LICENSE.md</file>
-    <file>flowplayer_r/assets/exclamation.png</file>
-    <file>flowplayer_r/assets/index.html</file>
-    <file>flowplayer_r/assets/play_large2.png</file>
-    <file>flowplayer_r/assets/play_large.png</file>
-    <file>flowplayer_r/assets/fprr200.png</file>
-    <file>flowplayer_r/assets/notice.png</file>
-    <file>flowplayer_r/index.html</file>
+    <filename plugin="joomlahls">joomlahls.php</filename>
+    <file>player/hls.js</file>
+    <file>player/video.js</file>
+    <file>player/videojs-ie8.min.js</file>
+    <file>player/video-js.css</file>
+    <file>player/videojs-hlsjs.js</file>
   </files>
 
   <languages>
-    <language tag="en-GB">en-GB.plg_system_flowplayerreloaded.ini</language>
-    <language tag="zh-CN">zh-CN.plg_system_flowplayerreloaded.ini</language>
+    <language tag="en-GB">en-GB.plg_system_joomlahls.ini</language>
+    <language tag="zh-CN">zh-CN.plg_system_joomlahls.ini</language>
   </languages>
 
   <config>

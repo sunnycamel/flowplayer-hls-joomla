@@ -16,11 +16,11 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 jimport('joomla.plugin.plugin');
 
-define( '_URL_FPP_', JURI::base().'plugins/system/flowplayerreloaded/flowplayer_r/' );
+define( '_URL_FPP_', JURI::base().'plugins/system/joomlahls/' );
 
-class plgSystemFlowplayerReloaded extends JPlugin{
+class plgSystemJoomlaHLS extends JPlugin{
 
-     function plgSystemFlowplayerReloaded( &$subject, $params )
+     function plgSystemJoomlaHLS( &$subject, $params )
      {
 	  parent::__construct( $subject, $params );
      }
@@ -36,15 +36,15 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 	  JHTML::_('script','system/modal.js', false, true);
 	  JHTML::_('stylesheet','system/modal.css', array(), true);
 	  $document->addScriptDeclaration(	"window.addEvent('domready', function(){
-        		SqueezeBox.initialize();
-        		SqueezeBox.assign($$('a[href^=#fprrpopup]'),{parse: 'rel'});
+                  videojs('video').play();
 		});"		);
-		
-	  $document->addScript(_URL_FPP_ . 'player/jquery-1.11.2.min.js');
-	  $document->addScript(_URL_FPP_ . 'player/flowplayer.min.js');
+
+
+	  $document->addScript(_URL_FPP_ . 'player/video.js');
+	  $document->addScript(_URL_FPP_ . 'player/videojs-ie8.min.js');
 	  $document->addScript(_URL_FPP_ . 'player/hls.js');
-	  $document->addScript(_URL_FPP_ . 'player/flowplayer.hlsjs.js');
-	  $document->addStyleSheet(_URL_FPP_ . 'player/skin/functional.css');
+	  $document->addScript(_URL_FPP_ . 'player/videojs-hlsjs.js');
+	  $document->addStyleSheet(_URL_FPP_ . 'player/video-js.css');
      }
 
      function onAfterRender()
@@ -53,7 +53,7 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 	  if(stripos($juri->getPath(),'/administrator/')!==false) return;
 		
 	  $text = JResponse::getBody();
-	  if ( stripos( $text, 'flowplayer' ) !== false ) 
+	  if ( stripos( $text, 'hls' ) !== false ) 
 	  {
 	       $result = $this->processText($text);
 	       if($result!==false)
@@ -66,10 +66,8 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 
      function processText($text)
      {
-	  $regex = '/{\s*flowplayer(\s+.+)?\s*}\s*([^\s]+.*[^\s]+)\s*{\s*\/\s*flowplayer\s*}/i';
-	  //$regex = '/{\s*flowplayer(\s+size\=([0-9]+)x([0-9]+))?(\s+img=([\/\:@\?#%\.\,\(\)\w-=]+))?(\s+(autoplay|noautoplay))?\s*}\s*([^\s]*)\s*{\s*\/\s*flowplayer\s*}/i';
-	  //'/{\s?flowplayer(\ssize\=([0-9]+)x([0-9]+))?\s?}\s*(.*?){\s?\/\s?flowplayer\s?}/i';		//{\s?flowplayer(\ssize\=([0-9]+)x([0-9]+))?(\s?img=[/:@\?#-_=\d])?\s?}\s*([^\s]*)\s*{\s?\/\s?flowplayer\s?}
-	  preg_match_all( $regex, $text, $matches);
+	  $regex = '/{\s*hls(\s+.+)?\s*}\s*([^\s]+.*[^\s]+)\s*{\s*\/\s*hls\s*}/i';
+          preg_match_all( $regex, $text, $matches);
 	  $count = count( $matches[0] );
 		
 	  //there are matches
@@ -100,24 +98,12 @@ class plgSystemFlowplayerReloaded extends JPlugin{
 	  $height	= $this->params->get( 'height' );
 	  $center	= $this->params->get( 'center' );
 		
-	  $video = '<div class="flowplayer" data-swf="flowplayer.swf" data-ratio="0.4167" style="width: '
-		    . $width. 'px; height: ' . $height . 'px;	display: block;" >' .
-		    '<video>' .
-		    '<source type="application/x-mpegurl" ' .
-		    'src="'. $filename . '">' .
-		    '</video>' .
-		    '</div>';
+	  $video = '<video id="video" class="video-js vjs-default-skin" height="300" width="600" autoplay controls>' .
+  '<source src="' . $filename . '" type="application/vnd.apple.mpegurl">' .
+               '</video>';
           
 	  return $video;
      }
 
-     /* protected function parseTagParameters($string) */
-     /* { */
-     /* 	  preg_match_all("/\s+([a-zA-Z]+)=([^\s]+)/i", $string, $matches, PREG_SET_ORDER); */
-     /* 	  foreach($matches as $i)  */
-     /* 	       $p[strtolower($i[1])] = $i[2]; */
-     /* 	  if($p) { */
-     /* 	       return $p;} */
-     /* } */
 }
 
