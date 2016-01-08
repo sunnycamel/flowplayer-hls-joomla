@@ -36,7 +36,11 @@ class plgSystemJoomlaHLS extends JPlugin{
 	  JHTML::_('script','system/modal.js', false, true);
 	  JHTML::_('stylesheet','system/modal.css', array(), true);
 	  $document->addScriptDeclaration(	"window.addEvent('domready', function(){
-                  videojs('video').play();
+                  var players = document.getElementsByClassName('video-js');
+                  for(var i=0; i<players.length; i++){
+                    //alert(players[i].getAttribute('id'));
+                    videojs(players[i]);
+                  }
 		});"		);
 
 
@@ -98,7 +102,7 @@ class plgSystemJoomlaHLS extends JPlugin{
 	  $height	= $this->params->get( 'height' );
 	  $center	= $this->params->get( 'center' );
 		
-	  $video = '<video id="video" class="video-js vjs-default-skin" height="300" width="600" autoplay controls>' .
+	  $video = '<video id="video' . rand(0, 100) . '" class="video-js vjs-default-skin" controls preload="auto" width="320" height="240">' .
   '<source src="' . $filename . '" type="application/vnd.apple.mpegurl">' .
                '</video>';
           
