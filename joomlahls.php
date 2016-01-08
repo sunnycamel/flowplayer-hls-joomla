@@ -1,9 +1,9 @@
 <?php
 /**
- * @version             $Id: flowplayerreloaded.php revision date tushev $
+ * @version             $Id: joomlahls.php revision 1.0
  * @package             Joomla
  * @subpackage  System
- * @copyright   Copyright (C) S.A. Tushev, 2011. All rights reserved.
+ * @copyright   Copyright (C) Sun Peng, 2020. All rights reserved.
  * @license     GNU GPL v2.0
  * Joomla! is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
@@ -27,7 +27,7 @@ class plgSystemJoomlaHLS extends JPlugin{
 
      function onAfterRoute() {
 	  $document = &JFactory::getDocument();
-	  $document->setGenerator($document->getGenerator().'; FlowPlayerReloaded 3.0 by tushev.org');
+	  $document->setGenerator($document->getGenerator().'; Joomla HLS plugin by Sun Peng');
 		
 	  $juri = &JFactory::getURI();
 	  if(stripos($juri->getPath(),'/administrator/')!==false) return;
@@ -91,7 +91,6 @@ class plgSystemJoomlaHLS extends JPlugin{
       */
      protected function buildHtml4Instance(&$matches)
      {
-	  /* $p 		= $this->parseTagParameters($matches[1]); */
 	  $filename 	= strip_tags($matches[2]);
 		
 	  /* $width	= (isset($p['width']))?$p['width']:$this->params->get( 'width' ); */
