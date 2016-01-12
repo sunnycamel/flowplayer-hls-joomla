@@ -38,7 +38,6 @@ class plgSystemJoomlaHLS extends JPlugin{
 	  $document->addScriptDeclaration(	"window.addEvent('domready', function(){
                   var players = document.getElementsByClassName('video-js');
                   for(var i=0; i<players.length; i++){
-                    //alert(players[i].getAttribute('id'));
                     videojs(players[i]);
                   }
 		});"		);
@@ -96,7 +95,7 @@ class plgSystemJoomlaHLS extends JPlugin{
 	  $width	= $this->params->get( 'width' );
 	  $height	= $this->params->get( 'height' );
 	  $center	= $this->params->get( 'center' );
-	  $mp4fallback  = $this-params->get('mp4fallback');
+	  $mp4fallback  = $this->params->get('mp4fallback');
 
 		
 	  $video = '<video id="video' . rand(0, 100) . '" class="video-js vjs-default-skin" controls preload="auto" width="320" height="240" data-setup=\'{"techOrder":["Hlsjs", "html5"]}\' >' .
