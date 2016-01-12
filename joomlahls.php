@@ -99,13 +99,14 @@ class plgSystemJoomlaHLS extends JPlugin{
 	  $mp4fallback  = $this-params->get('mp4fallback');
 
 		
-	  $video = '<video id="video' . rand(0, 100) . '" class="video-js vjs-default-skin" controls preload="auto" width="320" height="240">' .
+	  $video = '<video id="video' . rand(0, 100) . '" class="video-js vjs-default-skin" controls preload="auto" width="320" height="240" data-setup=\'{"techOrder":["Hlsjs", "html5"]}\' >' .
 	       '<source src="' . $filename . '" type="application/vnd.apple.mpegurl">';
 	  
 	  if($mp4fallback) {
 	       $parts = explode('/', $filename);
 	       array_pop($parts);
 	       $mp4_filename = implode('/', $parts);
+	       $mp4_filename = str_replace("movie","mp4", $mp4_filename);
 	       $video = $video . 
 	       '<source src="' . $mp4_filename . '" type="video/mp4">';
 	  }
