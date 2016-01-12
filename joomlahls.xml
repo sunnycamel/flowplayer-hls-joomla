@@ -42,6 +42,10 @@
 	  <option value="1">JYES</option>
 	  <option value="0">JNO</option>			
 	</field>
+	<field name="mp4fallback" type="radio" label="MP4FALLBACK" default="1" description="MP4FALLBACK_DESC" >
+	  <option value="1">JYES</option>
+	  <option value="0">JNO</option>
+	</field>
 	<field name="ipad" type="list" label="IPAD" default="0" description="IPAD_DESC" >
 	  <option value="2">IPAD_ALL</option>
 	  <option value="1">IPAD_IOS</option>

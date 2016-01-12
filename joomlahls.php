@@ -92,18 +92,25 @@ class plgSystemJoomlaHLS extends JPlugin{
      protected function buildHtml4Instance(&$matches)
      {
 	  $filename 	= strip_tags($matches[2]);
-		
-	  /* $width	= (isset($p['width']))?$p['width']:$this->params->get( 'width' ); */
-	  /* $height	= (isset($p['height']))?$p['height']:$this->params->get( 'height' ); */
-	  /* $center	= (isset($p['center']))?(($p['center'])?true:false):$this->params->get( 'center' ); */
 
 	  $width	= $this->params->get( 'width' );
 	  $height	= $this->params->get( 'height' );
 	  $center	= $this->params->get( 'center' );
+	  $mp4fallback  = $this-params->get('mp4fallback');
+
 		
 	  $video = '<video id="video' . rand(0, 100) . '" class="video-js vjs-default-skin" controls preload="auto" width="320" height="240">' .
-  '<source src="' . $filename . '" type="application/vnd.apple.mpegurl">' .
-               '</video>';
+	       '<source src="' . $filename . '" type="application/vnd.apple.mpegurl">';
+	  
+	  if($mp4fallback) {
+	       $parts = explode('/', $filename);
+	       array_pop($parts);
+	       $mp4_filename = implode('/', $parts);
+	       $video = $video . 
+	       '<source src="' . $mp4_filename . '" type="video/mp4">';
+	  }
+	  
+	  $video = $video . '</video>';
           
 	  return $video;
      }
